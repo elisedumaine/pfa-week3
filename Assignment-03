@@ -71,7 +71,8 @@ def ground_contact_y(x, z):
         return terrain_y(x, z) - .12
     return highest_hit - .015
 
-I think that there is a loop inside this loop. First, this part of the script was created from my request to make the floor contact better with my objects. Because previously, some objects were floating. The loops is managing transformation of the surface of the terrain (the land).
+I think that there is a loop inside this loop. First, this part of the script was created from my request to make the floor contact better with my objects. Because previously, some objects were floating. Even after asking to my agent multiple time to fix it. 
+But it finally did. I think its thanks to this loop The loops is managing transformation of the surface of the terrain (the land).
 In the iteration there is a loop that repeat an operation regarding the shape of an object. And it alters the contact with the ground by changing the ray and it depends on the height of the object.
 I don't really understand everything
 
