@@ -1,0 +1,74 @@
+## 1. Ten lines explained
+
+1.
+- 
+2.
+-
+3.
+-
+4.
+-
+5.
+-
+6.
+-
+7.
+-
+8.
+-
+9.
+-
+10.
+-
+
+
+## 2. The Loop
+
+
+def ground_contact_y(x, z):
+    """Ray-cast onto real low-poly terrain, not the smoother height estimate."""
+    if not TERRAIN_SURFACES:
+        return terrain_y(x, z) - .12
+
+    highest_hit = None
+    ray_origin = om.MFloatPoint(x, 1000.0, z)
+    ray_direction = om.MFloatVector(0.0, -1.0, 0.0)
+
+    for transform in TERRAIN_SURFACES:
+        shapes = cmds.listRelatives(
+            transform, shapes=True, noIntermediate=True, fullPath=True
+        ) or []
+        for shape in shapes:
+            selection = om.MSelectionList()
+            selection.add(shape)
+            mesh = om.MFnMesh(selection.getDagPath(0))
+            hit = mesh.closestIntersection(
+                ray_origin, ray_direction, om.MSpace.kWorld, 2000.0, False
+            )
+            if hit is not None:
+                height = hit[0].y
+                if highest_hit is None or height > highest_hit:
+                    highest_hit = height
+
+    if highest_hit is None:
+        return terrain_y(x, z) - .12
+    return highest_hit - .015
+
+I think that there is a loop inside this loop. First, this part of the script was created from my request to make the floor contact better with my objects. The loops is managing transformation of the surface of the terrain (the land).
+In the iteration there is a loop that repeat an operation regarding the shape of an object. And it alters the contact with the ground by changing the ray and it depends on the height of the object.
+I don't really understand everything
+
+
+
+## 3. The line changed by hand
+I did not change a line in my script of my Island GUI in class. But i tried some basic scripts. I tried basic loops like :
+for i in range (3,5):
+    print(i,"hello",j)
+
+
+
+
+## 4. The Undo
+
+
+
