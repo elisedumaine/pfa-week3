@@ -5,5 +5,6 @@ Have fun !
 
 
 # The Undo
-I used the undo of Git Hub to undo an explanation that i've made on my paragraph about the loop i chose from my script. 
-Because this addition was not necessary. It is quite useful. It brought me back to the last changes.
+I used the undo to deleate an explanation that i've made on my paragraph about the loop i chose from my script. 
+Because this addition was not necessary. I thought there was a button but i could not find it. I think it is because i use the web interface.
+So i did an manual undo. And it's useful to have access to the history of everything.
