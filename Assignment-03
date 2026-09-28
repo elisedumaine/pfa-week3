@@ -1,25 +1,42 @@
 ## 1. Ten lines explained
 
-1.
-- 
-2.
--
-3.
--
-4.
--
-5.
--
-6.
--
-7.
--
-8.
--
-9.
--
-10.
--
+1.import maya.cmds as cmds
+- First thing we have learned, it orders Python to understand Maya language.
+
+2.def water_material(name, colour):
+-This line define a shader and color and reflection on the water (the next lines specify that)
+
+3.def glow_material(name, colour, strength=.30):
+-This line define the glowing material of the water. And it's strenght (that is a variable dependent to other parameters in the next lines)
+
+4.def world_xz(base_x, base_z):
+    return base_x * island_width(), base_z * island_depth()
+-I think those 2 lines defines the world X and Y. And it depends on the width and depth button on the GUI.
+
+5.def water_size():
+    if cmds.control("waterSizeSlider", exists=True):
+        return cmds.floatSliderGrp(
+            "waterSizeSlider", query=True, value=True
+        )
+    return 1.0
+-I think this part of the script adds 1 unity of size to the water size when the user moves just a little the water slider.
+
+6.  if season() != "Winter":
+ return
+- If the user click on the winter parameter, the script does the next lines (adds ice) 
+If it is not winter the script "return", i think it means that it tries again (so does nothing) until it's winter.
+
+7.def create_village_path(parent, mats):
+-This creates the village path, i think the parents are 
+
+8.  wood = material("path_lantern_wood", (.20, .11, .07))
+-This creates the woods for the village path, with the sizes writen in the () 
+
+9. elif season() == "Autumn":
+-THe previous line was about winter so this line says if it's autumn do that (the next lines) 
+
+10. moon_x, moon_z = world_xz(-12, -10)
+-assigns the size of the moon
 
 
 ## 2. The Loop
